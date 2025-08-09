@@ -1,0 +1,69 @@
+
+<!doctype html>
+
+<head>
+    <meta charset="UTF-8">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #dffef4;
+        }
+        table {
+            width: 400px;
+            margin: 20px auto;
+            border-collapse: collapse;
+            background-color: #ffffff;
+        }
+        th, td {
+            border: 1px solid #ccc;
+            padding: 10px;
+            text-align: center;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        h3 {
+            color: #c2c2c2;
+        }
+    </style>
+ <title>Editare date</title>
+</head>
+<body bgcolor="dffef4">
+<table align="center" width="400" bgcolor="ffffff">
+     <tr>
+        <th><img src="/static/m-stet.jpg" width="129" height="129" alt="poza_med" longdesc="http://poza_med" /></th>
+    </tr>
+    <tr>
+    <td width="200" align="center">
+        <h3 color="c2c2c2">Editare date</h3>
+    <form action="/update_user" method="POST">
+        <p>ID: </p><p><input type=text name=id value="{{user[0]}}"></p>
+        <p>User: </p><p><input type=text name=user value="{{user[1]}}"></p>
+        <p>Parola:</p> <p><input type=text name=parola  value="{{user[2]}}"></p>
+        <p>Nume: </p><p><input type=text name=nume  value="{{user[3]}}"></p>
+    <p>Prenume: </p><p><input type=text name=prenume  value="{{user[4]}}"></p>
+
+        <p><label for="colegiu">Colegiu</label></p>
+        <p><select name="colegiu"  value="{{user[5]}}" id="colegiu">
+            <option value="-">Alege</option>
+            <option value="Arges">Arges</option>
+            <option value="Brasov">Brasov</option>
+            <option value="Bucuresti">Bucuresti</option>
+            <option value="Calarasi">Calarasi</option>
+            <option value="Cluj-Napoca">Cluj-Napoca</option>
+            <option value="Constanta">Constanta</option>
+            <option value="Iasi">Iasi</option>
+            <option value="Timisoara">Timisoara</option>
+            <option value="Olt">Olt</option>
+            <option value="Teleorman">Teleorman</option>
+        </select></p>
+    <p><input type=submit value=Salveaza></p>
+           </form>
+    </td>
+    </tr>
+</table>
+</body>
+
+ {% if error %}
+  <p color="#FF0000"><h3 align="center">Eroare! {{error}}</h3></p>
+{% endif %}

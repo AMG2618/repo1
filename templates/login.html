@@ -1,0 +1,27 @@
+
+<!doctype html>
+<title>Formular Login</title>
+<body bgcolor="dffef4">
+<table align="center" width="400" bgcolor="ffffff">
+    <tr>
+        <th><p></p></th>
+    </tr>
+    <tr>
+        <th><img src="/static/m-stet.jpg" width="129" height="129" alt="poza_med" longdesc="http://poza_med" /></th>
+    </tr>
+</table>
+<table align="center" width="400" bgcolor="ffffff">
+    <tr align="center">
+        <td>
+<form method="post">
+    <p>Utilizator:</p> <input type=text name=username></p>
+    <p>Parola:</p> <input type=password name=password></p>
+    <p><input type=submit value=Conectare></p>
+           </form>
+ {% if error %}
+  <h5>Eroare! {{error}}</h5>
+{% endif %}
+    </td>
+    </tr>
+</table>
+</body>

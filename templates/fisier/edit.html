@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <title>Editare date</title>
+    <style>
+    h1 {
+        text-align: center;
+        color: #2c3e50;
+        font-family: 'Segoe UI', sans-serif;
+    }
+
+    table {
+        margin: 0 auto;
+        border-collapse: collapse;
+        width: 80%;
+        font-family: 'Segoe UI', sans-serif;
+        box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+
+    th, td {
+        border: 1px solid #ccc;
+        padding: 12px;
+        text-align: center;
+    }
+
+    th {
+        background-color: #3498db;
+        color: white;
+    }
+
+    tr:nth-child(even) {
+        background-color: #f2f2f2;
+    }
+
+    tr:hover {
+        background-color: #d6eaf8;
+    }
+
+    p {
+        text-align: center;
+        font-style: italic;
+        color: #7f8c8d;
+    }
+</style>
+</head>
+<body>
+<p>Editare date</p>
+<table>
+    <tr>
+        <td>
+            <img src="/static/m-stet.jpg" width="129" height="129" alt="poza_med" />
+            <h3>Editare date</h3>
+            <form action="/update_user" method="POST">
+                <p>ID:</p>
+                <input type="text" name="id" value="{{ user[0] }}">
+
+                <p>User:</p>
+                <input type="text" name="user" value="{{ user[1] }}">
+
+                <p>Parola:</p>
+                <input type="text" name="parola" value="{{ user[2] }}">
+
+                <p>Nume:</p>
+                <input type="text" name="nume" value="{{ user[3] }}">
+
+                <p>Prenume:</p>
+                <input type="text" name="prenume" value="{{ user[4] }}">
+
+                <p>Colegiu:</p>
+                <select name="colegiu" id="colegiu">
+                    <option value="-">Alege</option>
+                    {% for colegiu in ["Arges", "Brasov", "Bucuresti", "Calarasi", "Cluj-Napoca", "Constanta", "Iasi", "Timisoara", "Olt", "Teleorman"] %}
+                        <option value="{{ colegiu }}" {% if user[5] == colegiu %}selected{% endif %}>{{ colegiu }}</option>
+                    {% endfor %}
+                </select>
+
+                <input type="submit" value="Salvează">
+            </form>
+
+            {% if error %}
+                <div class="error">Eroare! {{ error }}</div>
+            {% endif %}
+        </td>
+    </tr>
+</table>
+
+</body>
+</html>

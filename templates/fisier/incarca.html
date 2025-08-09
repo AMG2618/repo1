@@ -1,0 +1,72 @@
+
+<!doctype html>
+<head>
+    <meta charset="UTF-8">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #dffef4;
+        }
+        table {
+            width: 400px;
+            margin: 20px auto;
+            border-collapse: collapse;
+            background-color: #ffffff;
+        }
+        th, td {
+            border: 1px solid #ccc;
+            padding: 10px;
+            text-align: center;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        h3 {
+            color: #c2c2c2;
+        }
+    </style>
+    <title>Incarca documente</title>
+</head>
+<body bgcolor="dffef4">
+
+<table align="center" width="400" bgcolor="ffffff">
+    <tr>
+        <th><img src="/static/m-stet.jpg" width="129" height="129" alt="poza_med" longdesc="http://poza_med" /></th>
+    </tr>
+    <tr>
+    <td width="200" align="center">
+        <h3 color="c2c2c2">Incarca documente pentru id_medic {{id_medic}}</h3>
+
+    <form method=post enctype=multipart/form-data>
+        <p>Sunt permise fisiere cu extensiile: .pdf, .gif, .png</p>
+      <input type=file name=file>
+<!--        <p>Tip document </p>-->
+<!--        <p><input type=text name=tip  value="CI/Absolvire/EMC"></p>-->
+         <p><label for="tip">Tip document</label></p>
+        <p><select name="tip" id="tip">
+             <option value="-">Alege</option>
+            <option value="ci">CI</option>
+            <option value="diploma_absolvire">Diploma absolvire</option>
+            <option value="diploma_emc">Diploma EMC</option>
+        </select></p>
+                 <p><label for='emc'>Puncte EMC</label></p>
+        <p><select name="emc" id="emc">
+             <option value="0">Alege</option>
+            <option value="0">0</option>
+            <option value="8">8 puncte</option>
+            <option value="12">12 puncte</option>
+            <option value="24">24 puncte</option>
+        </select></p>
+         <p>Data EMC: </p><p><input type=date lang="ro-ro" name=data></p>
+<!--        <p>Puncte EMC </p><p><input type=text name=emc  value="0"></p>-->
+      <input type=submit value=incarca>
+
+    </form>
+    </td>
+    </tr>
+</table>
+</body>
+
+ {% if error %}
+  <p color="#FF0000"><h3 align="center">Eroare! {{error}}</h3></p>
+{% endif %}

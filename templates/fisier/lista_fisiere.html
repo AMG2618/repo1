@@ -1,0 +1,38 @@
+<!doctype html>
+<title>Lista utilizatori</title>
+<body bgcolor="dffef4">
+<table align="center" width="400" bgcolor="ffffff">
+    <tr>
+        <th width="800" align="center"><h3 color="c2c2c2">Lista utilizatori</h3></th>
+    </tr>
+</table>
+<table align="center" width="800" bgcolor="ffffff">
+    <tr>
+        <th><p>ID</p></th>
+        <th><p>User</p></th>
+        <th><p>Parola</p></th>
+        <th><p>Nume</p></th>
+        <th><p>Prenume</p></th>
+        <th><p>Colegiu</p></th>
+        <th><p>Editare</p></th>
+        <th><p>Stergere</p></th>
+
+    </tr>
+    {% for user in users %}
+    <tr align="center">
+        <td>{{user[0]}}</td>
+        <td><p>{{user[1]}}</p></td>
+        <td><p>{{user[2]}}</p></td>
+        <td><p>{{user[3]}}</p></td>
+        <td><p>{{user[4]}}</p></td>
+        <td><p>{{user[5]}}</p></td>
+        <th><a href="/admin/user/{{user[0]}}/edit">Editeaza user</a></th>
+        <th><a href="/admin/user/{{user[0]}}/delete">Sterge user</a></th>
+    </tr>
+    {% endfor%}
+</table>
+</body>
+
+ {% if error %}
+  <h5>Error! {{error}}</h5>
+{% endif %}

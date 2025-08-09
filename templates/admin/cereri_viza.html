@@ -1,0 +1,67 @@
+{% block content %}
+<style>
+    h1 {
+        text-align: center;
+        color: #2c3e50;
+        font-family: 'Segoe UI', sans-serif;
+    }
+
+    table {
+        margin: 0 auto;
+        border-collapse: collapse;
+        width: 80%;
+        font-family: 'Segoe UI', sans-serif;
+        box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+
+    th, td {
+        border: 1px solid #ccc;
+        padding: 12px;
+        text-align: center;
+    }
+
+    th {
+        background-color: #3498db;
+        color: white;
+    }
+
+    tr:nth-child(even) {
+        background-color: #f2f2f2;
+    }
+
+    tr:hover {
+        background-color: #d6eaf8;
+    }
+
+    p {
+        text-align: center;
+        font-style: italic;
+        color: #7f8c8d;
+    }
+</style>
+
+<h1>📄 Lista cereri de viză</h1>
+
+{% if cereri %}
+<table align="center" width="800" bgcolor="ffffff" border="-1">
+    <thead>
+        <tr>
+            <th>ID Cerere Viză</th>
+            <th>ID Medic</th>
+            <th>Data Cererii</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for cerere in cereri %}
+        <tr>
+            <td>{{ cerere[0] }}</td>
+            <td>{{ cerere[1] }}</td>
+            <td>{{ cerere[2] }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% else %}
+<p>Nu există cereri de viză înregistrate.</p>
+{% endif %}
+{% endblock %}
