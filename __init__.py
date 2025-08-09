@@ -178,21 +178,21 @@ def edit_user(id):
         id, user, parola, nume, prenume, colegiu = row
     return render_template('user/edit.html', user=out)
 
-# @app.route('/update_user', methods=['POST'])
-# def update_user():
-#     id = request.form['id']
-#     user = request.form['user']
-#     parola = request.form['parola']
-#     nume = request.form['nume']
-#     prenume = request.form['prenume']
-#     colegiu = request.form['colegiu']
-#     connection = sqlite3.connect('medici.db')
-#     cursor = connection.cursor()
-#     cursor.execute("UPDATE medici SET user = ?, parola = ?, nume = ?, prenume = ?, colegiu = ?   WHERE id = ?", (user, parola, nume, prenume, colegiu, id))
-#     connection.commit()
-#     connection.close()
-#
-#     return redirect(url_for('profile', id=id))
+@app.route('/update_user', methods=['POST'])
+def update_user():
+    id = request.form['id']
+    user = request.form['user']
+    parola = request.form['parola']
+    nume = request.form['nume']
+    prenume = request.form['prenume']
+    colegiu = request.form['colegiu']
+    connection = sqlite3.connect('medici.db')
+    cursor = connection.cursor()
+    cursor.execute("UPDATE medici SET user = ?, parola = ?, nume = ?, prenume = ?, colegiu = ?   WHERE id = ?", (user, parola, nume, prenume, colegiu, id))
+    connection.commit()
+    connection.close()
+
+    return redirect(url_for('profile', id=id))
 
 @app.route('/viza/<int:id_medic>')
 def cerere_viza(id_medic):
