@@ -119,9 +119,9 @@ def afiseaza_documente_medic(id_medic):
         out = row
         fisiere.append(row)
         id, id_medic, nume, continut, tip, emc, data = row
-    print(f'profile out id={id}')
-    print(f'profile out id_medic={id_medic}')
-    # edit = url_for("edit_user", id=id)
+        # print(f'profile out id={id}')
+        # print(f'profile out id_medic={id_medic}')
+     # edit = url_for("edit_user", id=id)
     pagina_medic = url_for("profile", id=id_medic)
     return render_template('fisier/index_medic.html', fisiere=fisiere, id_medic=id_medic, pagina_medic=pagina_medic)
 # download fisier
