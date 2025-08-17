@@ -31,5 +31,6 @@ Această aplicație web construită cu **Python și Flask** permite medicilor s�
 
 1. Clonează proiectul:
    ```bash
-   git clone https://github.com/nume-utilizator/proiect-medici.git
-   cd proiect-medici
+   git clone https://github.com/AMG2618/repo1.git project_p1
+   cd project_p1
+   python create_db.py 
