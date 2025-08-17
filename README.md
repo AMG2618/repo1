@@ -28,9 +28,11 @@ Această aplicație web construită cu **Python și Flask** permite medicilor s�
 - **Upload fișiere**: Flask-Uploads / Werkzeug
 
 ## 📦 Instalare locală
-
-1. Clonează proiectul:
-   ```bash
+1. Asigură-te că ai instalat Python 3.x și pip.
+2. Clonează repository-ul:
+    ```bash
    git clone https://github.com/AMG2618/repo1.git project_p1
    cd project_p1
-   python create_db.py 
+3. Creeaza baza de date:
+    ```bash
+    python create_db.py
