@@ -129,12 +129,21 @@ def afiseaza_documente_medic(id_medic):
 def download_file(id_fisier):
     connection = sqlite3.connect('medici.db')
     cursor = connection.cursor()
-    cursor.execute(f"SELECT id, id_medic, nume, continut, tip, emc, data FROM fisiere WHERE id={id_fisier}")
+    # cursor.execute(f"SELECT id, id_medic, nume, continut, tip, emc, data FROM fisiere WHERE id={id_fisier}")
+    # row = cursor.fetchone()
+    # if row:
+    #     id, id_medic, nume, continut, tip, emc, data = row
+    #     # Assuming 'continut' is the file content in bytes
+    #     return send_file(io.BytesIO(continut), attachment_filename=nume, as_attachment=True)
+    cursor.execute("""
+            SELECT nume, continut 
+            FROM fisiere 
+            WHERE id = ?
+        """,(id_fisier,))
     row = cursor.fetchone()
     if row:
-        id, id_medic, nume, continut, tip, emc, data = row
-        # Assuming 'continut' is the file content in bytes
-        return send_file(io.BytesIO(continut), attachment_filename=nume, as_attachment=True)
+        nume, continut = row
+        return send_file(io.BytesIO(str.encode(continut)), download_name=nume, as_attachment=True)
     else:
         flash('File not found')
         return redirect(url_for('fisiere.afiseaza_documente'))

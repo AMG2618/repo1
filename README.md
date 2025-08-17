@@ -8,14 +8,16 @@ Această aplicație web construită cu **Python și Flask** permite medicilor s�
 - ✅ **Autentificare și înregistrare**: Creare cont și login securizat
 - 📤 **Încărcare documente**: Upload fișiere relevante (PDF, imagini etc.)
 - 📂 **Vizualizare documente**: Listare și acces la fișierele proprii
-- ✏️ **Editare profil**: Actualizare detalii cont (nume, email, parolă etc.)
+- ✏️ **Editare profil**: Actualizare detalii cont (user, parola, nume, prenume si colegiu)
+- 📄 **Cerere viză EMC**:
+- 📄 **Descărcare documente**.
 - 📄 **Pagina EMC**:
   - Afișare punctaj EMC acumulat în ultimul an
   - Generare **cerere viză anuală EMC** dacă sunt îndeplinite condițiile (≥ 48 puncte)
 
 ### Pentru administrator:
 - 👥 **Gestionare utilizatori**:
-  - Vizualizare, editare și ștergere conturi
+        - Vizualizare, editare și ștergere conturi
 - 📁 **Acces la toate documentele** încărcate de medici
 - 📝 **Vizualizare cereri de viză EMC** generate de utilizatori
 
