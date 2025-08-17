@@ -226,6 +226,22 @@ def cerere_viza(id_medic):
 def trimitecerereviza(id_medic):
     connection = sqlite3.connect('medici.db')
     cursor = connection.cursor()
+    sql_script = f"""SELECT id, id_medic, nume, continut, tip, emc, data, id_cerere_viza FROM fisiere WHERE id_medic={id_medic} and tip="diploma_emc" and data >= DATE('now', '-366 days') and id_cerere_viza = 0"""
+    cursor.execute(sql_script)
+    connection.commit()
+    rows = cursor.fetchall()
+    fisiere = []
+    total_emc = 0
+    for row in rows:
+        print(row)
+        out = row
+        fisiere.append(row)
+        id, id_medic, nume, continut, tip, emc, data, id_cerere_viza = row
+        total_emc = total_emc + int(emc)
+    if total_emc < 48:
+        return render_template('user/viza.html', fisiere=fisiere, total_emc=total_emc, error="Nu aveti suficiente puncte EMC! Limita este 48 de puncte EMC pentru a putea solicita viza de libera practica.")
+    connection = sqlite3.connect('medici.db')
+    cursor = connection.cursor()
     sql_script = f"""INSERT INTO cerere_viza (id_medic, data) VALUES ({id_medic}, DATE('now'))"""
     cursor.execute(sql_script)
     connection.commit()

@@ -23,6 +23,9 @@
         h3 {
             color: #c2c2c2;
         }
+          h5 {
+            color: #ff0000;
+        }
     </style>
     <title>Afiseaza lista documente</title>
 </head>
@@ -70,11 +73,10 @@
         <tr>
         <th width="800" ><h3 color="c2c2c2"><a href="{{incarcare}}">Incarca fisier</a></h3></th>
             <th width="800" ><h3 color="c2c2c2"><a href="{{pagina_medic}}">Inapoi la profilul tau</a></h3></th>
-        <th width="800" ><h3 color="c2c2c2">{% if total_emc >=48 %}<a href="{{viza}}">Trimite cerere viza</a>{% endif %}</h3></th>
+        <th width="800" ><h3 color="c2c2c2"><a href="{{viza}}">Trimite cerere viza</a></h3></th>
     </tr>
     </table>
-
-</body>
  {% if error %}
-  <h5>Error! {{error}}</h5>
+  <h5 align="center">Eroare! {{error}}</h5>
 {% endif %}
+</body>
