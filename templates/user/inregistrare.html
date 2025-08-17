@@ -24,6 +24,9 @@
         h3 {
             color: #c2c2c2;
         }
+          h5 {
+            color: #ff0000;
+        }
     </style>
  <title>Formular Inregistrare</title>
 </head>
@@ -35,6 +38,10 @@
     <tr>
     <td width="200" align="center">
         <h3 color="c2c2c2">Formular inregistrare</h3>
+
+ {% if error %}
+  <p color="#FF0000"><h5 align="center">Eroare! {{error}}</h5></p>
+{% endif %}
     <form method="post">
         <p>User: </p><p><input type=text name=user></p>
         <p>Parola:</p> <p><input type=password name=parola></p>

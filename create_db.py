@@ -7,15 +7,15 @@ cursor = connection.cursor()
 sql_script = """
 CREATE TABLE medici (
 id INTEGER PRIMARY KEY AUTOINCREMENT,
-user VARCHAR(127) NOT NULL,
+user VARCHAR(127) UNIQUE NOT NULL,
 parola VARCHAR(10) NOT NULL,
 nume VARCHAR(127) NOT NULL,
 prenume VARCHAR(127) NOT NULL,
 colegiu VARCHAR(127) NOT NULL);
 """
 
-# cursor.execute(sql_script)
-# connection.commit()
+cursor.execute(sql_script)
+connection.commit()
 
 # cursor.execute("drop table fisiere;")
 # connection.commit()
@@ -34,8 +34,9 @@ FOREIGN KEY (id_medic) REFERENCES medici(id)
 
 );
 """
-# cursor.execute(sql_script)
-# connection.commit()
+
+cursor.execute(sql_script)
+connection.commit()
 
 sql_script = """
 CREATE TABLE cerere_viza (
@@ -46,8 +47,8 @@ FOREIGN KEY (id_medic) REFERENCES medici(id)
 
 );
 """
+
 cursor.execute(sql_script)
 connection.commit()
-
 
 connection.close()

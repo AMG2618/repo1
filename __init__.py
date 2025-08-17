@@ -12,10 +12,11 @@ UPLOAD_FOLDER = 'atasamente'
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 
 if __name__ == '__main__':
-    import os
-    assert os.path.exists("cert.pem"), "cert.pem nu există!"
-    assert os.path.exists("key.pem"), "key.pem nu există!"
+    # import os
+    # assert os.path.exists("cert.pem"), "cert.pem nu există!"
+    # assert os.path.exists("key.pem"), "key.pem nu există!"
     #app.run(ssl_context=('cert.pem', 'key.pem'))
+    pass
 
 from project_p1.fisiere import fisiere
 app.register_blueprint(fisiere)
@@ -331,6 +332,6 @@ def admin():
 
 
 
-if __name__ == '__main__':
-    cerere_viza()
-    app.run(ssl_context=('cert.pem', 'key.pem'), host='localhost', port=4443, debug=True)
+# if __name__ == '__main__':
+#     cerere_viza()
+#     app.run(ssl_context=('cert.pem', 'key.pem'), host='localhost', port=4443, debug=True)
