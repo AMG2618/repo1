@@ -12,10 +12,6 @@ UPLOAD_FOLDER = 'atasamente'
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 
 if __name__ == '__main__':
-    # import os
-    # assert os.path.exists("cert.pem"), "cert.pem nu există!"
-    # assert os.path.exists("key.pem"), "key.pem nu există!"
-    #app.run(ssl_context=('cert.pem', 'key.pem'))
     pass
 
 from project_p1.fisiere import fisiere
@@ -251,7 +247,7 @@ def trimitecerereviza(id_medic):
     connection.close()
     connection = sqlite3.connect('medici.db')
     cursor = connection.cursor()
-    # sql_script = f"""UPDATE fisiere WHERE id_medic={id_medic} and tip="diploma_emc" and data >= DATE('now', '-366 days') and id_cerere_viza= 0 SET id_cerere_viza = {id_cerere_viza}"""
+
     sql_script = f"""UPDATE fisiere SET id_cerere_viza = {id_cerere_viza} WHERE id_medic={id_medic} and tip="diploma_emc" and data >= DATE('now', '-366 days') and id_cerere_viza = 0"""
     cursor.execute(sql_script)
     connection.commit()

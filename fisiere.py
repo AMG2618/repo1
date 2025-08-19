@@ -19,7 +19,6 @@ class Fisier():
         self.emc = emc
         self.data=data
 
-    # def incarca_document(self, id_medic, nume, continut, tip, emc):
     def incarca_document(self):
         connection = sqlite3.connect('medici.db')
         cursor = connection.cursor()
@@ -45,8 +44,6 @@ def allowed_file(filename):
 def incarcare(id_medic):
     error = None
     if request.method == 'POST':
-        # tip = request.form['tip']
-        # emc = request.files['emc']
         if 'emc' in request.form:
             emc = request.form['emc']
         else:
@@ -113,7 +110,7 @@ def afiseaza_documente_medic(id_medic):
     cursor.execute(f"SELECT id, id_medic, nume, continut, tip, emc, data FROM fisiere WHERE id_medic={id_medic}")
     rows = cursor.fetchall()
     out = 0
-    fisiere= []
+    fisiere = []
     for row in rows:
         print(row)
         out = row

@@ -35,6 +35,18 @@ Această aplicație web construită cu **Python și Flask** permite medicilor s�
     ```bash
    git clone https://github.com/AMG2618/repo1.git project_p1
    cd project_p1
-3. Creeaza baza de date:
+3. Creează un mediu virtual și activează-l:
+    ```bash
+   python3 -m venv .venv
+   source .venv/bin/activate
+4. Instalează dependințele necesare:
+    ```bash
+   pip install Flask
+5. Creeaza baza de date:
     ```bash
     python create_db.py
+6. Rulează aplicația:
+    ```bash
+    flask --debug --app _init_.py run
+
+
